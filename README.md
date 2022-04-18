@@ -33,7 +33,8 @@ MQTT_PASSWORD=mqtt
 - build the executable with `env GOOS=target-OS GOARCH=target-architecture go build`
   - [Go Builds Article](https://www.digitalocean.com/community/tutorials/how-to-build-go-executables-for-multiple-platforms-on-ubuntu-16-04#step-4-building-executables-for-different-architectures)
 - install `.env` files and `vmware-workstation-listener.exe` in the same directory on your machine
-- Install exe as a scheduled task to start when compute starts, login as user
+- Install exe as a scheduled task to start when computer starts, login as you user
+  - Or install as a service
 - Run
 
 # Requires
