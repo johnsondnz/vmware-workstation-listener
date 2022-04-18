@@ -16,10 +16,10 @@ switch:
 ```
 
 # Usage
-## .env file exmaple
+## .env file example
 Create .env file for use along side .exe
 ```
-AUTH_TOKEN=abcdefghijklmnopqrstuvwxya
+AUTH_TOKEN=abcdefghijklmnopqrstuvwxyz
 MQTT_SERVER=192.168.1.1
 MQTT_PORT=1883
 MQTT_USERNAME=mqtt
