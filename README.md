@@ -7,12 +7,12 @@ This program runs local to VMWare Workstation and listens to an MQTT topic for p
 ```
 switch:
     - platform: mqtt
-    unique_id: eve_ng_switch
-    name: EVE-NG WOL
-    command_topic: home/servers/eve_ng
-    payload_on: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "on"}'
-    payload_off: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "shutdown"}'
-    retain: false
+        unique_id: eve_ng_switch
+        name: EVE-NG WOL
+        command_topic: home/servers/eve_ng
+        payload_on: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "on"}'
+        payload_off: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "shutdown"}'
+        retain: false
 ```
 
 # Usage
