@@ -9,7 +9,7 @@ switch:
     - platform: mqtt
         unique_id: eve_ng_switch
         name: EVE-NG WOL
-        command_topic: home/servers/eve_ng
+        command_topic: home/servers
         payload_on: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "on"}'
         payload_off: '{"id": "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "state": "shutdown"}'
         retain: false
@@ -24,6 +24,7 @@ MQTT_SERVER=192.168.1.1
 MQTT_PORT=1883
 MQTT_USERNAME=mqtt
 MQTT_PASSWORD=mqtt
+MQTT_TOPIC=home/servers
 ```
 
 - AUTH_TOKEN: This is the encoded base64 string used to auth with VMWare Workstation REST API
