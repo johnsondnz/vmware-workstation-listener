@@ -1,0 +1,10 @@
+[tool.black]
+line-length = 119
+exclude = 'generated'
+
+[tool.interrogate]
+ignore-init-method = true
+ignore-init-module = true
+omit-covered-files = false
+fail-under = 100
+verbose = 1
