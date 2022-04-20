@@ -53,6 +53,11 @@ func handler(message map[string]interface{}) {
 	fmt.Println(string(body))
 }
 
+func availabiltyUpdate(client mqtt.Client, msg string) {
+	token := client.Publish(viper.Get("MQTT_STATUS_TOPIC").(string), 0, false, msg)
+	token.Wait()
+}
+
 var knt int
 var messagePubHandler mqtt.MessageHandler = func(client mqtt.Client, msg mqtt.Message) {
 	messageData := msg.Payload()
@@ -87,7 +92,7 @@ func main() {
 
 	connectionString := fmt.Sprintf("tcp://%s:%s", viper.Get("MQTT_SERVER").(string), viper.Get("MQTT_PORT").(string))
 	opts := mqtt.NewClientOptions().AddBroker(connectionString)
-	opts.SetClientID("go_client")
+	opts.SetClientID("go_client1")
 	opts.SetUsername(viper.Get("MQTT_USERNAME").(string))
 	opts.SetPassword(viper.Get("MQTT_PASSWORD").(string))
 	opts.SetDefaultPublishHandler(messagePubHandler)
@@ -104,6 +109,9 @@ func main() {
 		panic(token.Error())
 	} else {
 		fmt.Printf("Connected to server\n")
+		availabiltyUpdate(client, viper.Get("MQTT_STATUS_UP").(string))
 	}
-	<-c
+	<-c // Program blocks here until interrupted
+	availabiltyUpdate(client, viper.Get("MQTT_STATUS_DOWN").(string))
+	fmt.Println("\nAll work done, shutting down!")
 }
