@@ -54,7 +54,7 @@ func handler(message map[string]interface{}) {
 }
 
 func availabiltyUpdate(client mqtt.Client, msg string) {
-	token := client.Publish(viper.Get("MQTT_STATUS_TOPIC").(string), 0, false, msg)
+	token := client.Publish(viper.Get("MQTT_STATUS_TOPIC").(string), 0, true, msg)
 	token.Wait()
 }
 
